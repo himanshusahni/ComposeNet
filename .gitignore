@@ -1,0 +1,6 @@
+*.pyc
+*.meta
+*.data-*
+*.index
+*checkpoint
+*.log
