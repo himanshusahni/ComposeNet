@@ -35,15 +35,6 @@ def make_train_op(local_estimator, global_estimator, key_func, step):
   local_grads, _ = tf.clip_by_global_norm(local_grads, 5.0)
   _, global_vars = zip(*global_estimator.grads_and_vars)
   global_vars = list(sorted(global_vars, key=key_func))
-  p = ""
-  for v in local_vars:
-    p += v.name + '\n'
-  p += "APPLIED TO:\n"
-  for v in global_vars:
-    p += v.name + '\n'
-  p += '='*20
-  p += '\n'
-  sys.stdout.write(p)
   local_global_grads_and_vars = list(zip(local_grads, global_vars))
   return global_estimator.optimizer.apply_gradients(local_global_grads_and_vars,
           global_step=step)

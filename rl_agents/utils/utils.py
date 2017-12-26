@@ -43,17 +43,6 @@ def make_copy_params_op(v1_list, v2_list, key_func):
   """
   v1_list = list(sorted(v1_list, key=key_func))
   v2_list = list(sorted(v2_list, key=key_func))
-  p = "COPY:\n"
-  for v in v1_list:
-    p += v.name + '\n'
-  p += "INTO:\n"
-  for v in v2_list:
-    p += v.name + '\n'
-  p += '='*20
-  p += '\n'
-  import sys
-  sys.stdout.write(p)
-
   update_ops = []
   for v1, v2 in zip(v1_list, v2_list):
     op = v2.assign(v1)
