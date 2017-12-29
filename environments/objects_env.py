@@ -314,30 +314,3 @@ class World():
                     return True
 
         return False
-# import sys
-# from sets import Set
-# w = World(goal_arr=[1,2,0])
-# s = Set()
-# for i in range(100):
-    # w.reset()
-    # done = False
-    # ep_r = 0
-    # act_dict = {'w': w.UP, 's':w.DOWN, 'a':w.LEFT, 'd':w.RIGHT}
-    # while not done:
-        # for i in range(w.world.shape[0]):
-            # for j in range(w.world.shape[1]):
-                # sys.stdout.write(' {} '.format(w.world[i,j]))
-            # sys.stdout.write('\n')
-        # sys.stdout.write('\n')
-        # print w.goal_arr
-        # # a = raw_input()
-        # a = np.random.choice(act_dict.keys())
-        # _, r, done = w.step(act_dict[a])
-        # ep_r += r
-        # print "Reward: {}".format(r)
-    # print "Episodic Reward: {}".format(ep_r)
-    # s.add(ep_r)
-    # if round(ep_r,2) == -0.25:
-        # print "Caught!"
-        # break
-# print s
