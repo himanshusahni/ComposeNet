@@ -83,7 +83,7 @@ with tf.device("/cpu:0"):
   for worker_id in range(NUM_WORKERS):
     worker = Worker(
       name="worker_{}".format(worker_id),
-      env = make_env(FLAGS.task, [FLAGS.object1, FLAGS.object2]),
+      env = make_env(FLAGS.env, FLAGS.task),
       policy_net=policy_net,
       value_net=value_net,
       global_counter=global_counter,
@@ -100,7 +100,7 @@ with tf.device("/cpu:0"):
   # Used to occasionally evaluate the policy and save
   # statistics and checkpoint model.
   pe = PolicyEval(
-    env = make_env(FLAGS.task, [FLAGS.object1, FLAGS.object2]),
+    env = make_env(FLAGS.env, FLAGS.task),
     policy_net=policy_net,
     saver=saver,
     logfile=logfile,
